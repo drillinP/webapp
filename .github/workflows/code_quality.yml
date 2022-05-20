@@ -1,0 +1,25 @@
+name: Code quality
+
+on: [push, pull_request]
+
+jobs:
+  php_code_quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --no-check-publish
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Detecting PHP Code Standards Violations
+        run: ~/.composer/vendor/bin/phpcs -v --standard=PSR12 --ignore=./src/Kernel.php ./src
+
+      - name: phpstan
+        run: phpstan analyse ./src
+
+      - name: Twig lint
+        run: twig-lint lint ./templates

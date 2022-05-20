@@ -1,4 +1,6 @@
 {
+    "name": "drillinp/webapp",
+    "description": "Symfony webapp to test",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
