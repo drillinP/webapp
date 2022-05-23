@@ -16,10 +16,10 @@ jobs:
         run: composer install
 
       - name: Detecting PHP Code Standards Violations
-        run: ~/.composer/vendor/bin/phpcs -v --standard=PSR12 --ignore=./src/Kernel.php ./src
+        run: ./vendor/bin/phpcs -v --standard=PSR12 --ignore=./src/Kernel.php ./src
 
       - name: phpstan
-        run: phpstan analyse ./src
+        run: ./vendor/bin/phpstan analyse ./src --level 9
 
       - name: Twig lint
-        run: twig-lint lint ./templates
+        run: php bin/console lint:twig ./templates
