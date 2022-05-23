@@ -10,16 +10,16 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Validate composer.json and composer.lock
-        run: composer validate --no-check-publish
+        run: make validate
 
       - name: Install dependencies
         run: composer install
 
       - name: Detecting PHP Code Standards Violations
-        run: ./vendor/bin/phpcs -v --standard=PSR12 --ignore=./src/Kernel.php ./src
+        run: make phpcs
 
       - name: phpstan
-        run: ./vendor/bin/phpstan analyse ./src --level 9
+        run: make phpstan
 
       - name: Twig lint
-        run: php bin/console lint:twig ./templates
+        run: make twig-lint
