@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Local",
+            "Group": "Servers",
+            "Host": "postgis",
+            "Port": 5432,
+            "MaintenanceDB": "webapp",
+            "Username": "postgres",
+            "PassFile": "postgis:5432:webapp:postgres:postgres",
+            "SSLMode": "prefer"
+        }
+    }
+}
