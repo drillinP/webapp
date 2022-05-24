@@ -22,9 +22,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $username;
 
-    /** 
+    /**
      * @var array<string>
-    */
+     */
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
@@ -94,8 +94,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
- * @param array<array-key, string> $roles
- */
+     * @param array<array-key, string> $roles
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
