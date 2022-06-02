@@ -25,7 +25,7 @@ class Maps
     #[ORM\Column(type: 'text', nullable: true)]
     private string|null $description;
 
-    #[ORM\Column(type: 'date', options:["default"=>"NOW()"])]
+    #[ORM\Column(type: 'date', options:["default" => "NOW()"])]
     private DateTimeImmutable $created_at;
 
     #[ORM\Column(type: 'date', nullable: true)]

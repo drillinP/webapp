@@ -12,7 +12,8 @@ class AppFixtures extends Fixture
 {
     protected UserPasswordHasherInterface $hasher;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher) {
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
         $this->hasher = $passwordHasher;
     }
 
@@ -24,7 +25,7 @@ class AppFixtures extends Fixture
 
         $admin = new User();
 
-        $hashedPassword = $this->hasher->hashPassword($admin,'admin');
+        $hashedPassword = $this->hasher->hashPassword($admin, 'admin');
 
         $admin->setFirstName($faker->firstName())
             ->setLastName($faker->lastName())
@@ -38,7 +39,7 @@ class AppFixtures extends Fixture
         for ($u = 0; $u < 10; $u++) {
             $user = new User();
 
-            $hashedPassword = $this->hasher->hashPassword($user,'password');
+            $hashedPassword = $this->hasher->hashPassword($user, 'password');
 
             $user->setFirstName($faker->firstName())
                 ->setLastName($faker->lastName())
