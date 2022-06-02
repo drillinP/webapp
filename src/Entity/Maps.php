@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use PHPStan\Type\Doctrine\Descriptors\DateTimeTzType;
 
 #[ORM\Entity(repositoryClass: MapsRepository::class)]
+#[ORM\Table(name: '`webapp.maps`')]
 class Maps
 {
     #[ORM\Id]
@@ -24,7 +25,7 @@ class Maps
     #[ORM\Column(type: 'text', nullable: true)]
     private string|null $description;
 
-    #[ORM\Column(type: 'date')]
+    #[ORM\Column(type: 'date', options:["default"=>"NOW()"])]
     private DateTimeImmutable $created_at;
 
     #[ORM\Column(type: 'date', nullable: true)]
