@@ -1,0 +1,18 @@
+<!-- Modal -->
+<div class="modal fade" id="{{ id_modal_map_new }}" tabindex="-1" aria-labelledby="{{ id_modal_map_new }}Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="{{ id_modal_map_new }}Label">{% block modal_title %} {{title}} {% endblock %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% block modal_body %} {% endblock %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        {% block modal_button %} {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
