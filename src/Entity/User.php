@@ -41,7 +41,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $last_name;
 
     #[ORM\Column(type: 'date')]
-    private DateTimeImmutable $registered_at;
+    private \DateTime $registered_at;
 
     #[ORM\Column(type: 'date', nullable: true)]
     private DateTimeImmutable|null $updated_at;
