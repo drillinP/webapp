@@ -1,0 +1,13 @@
+{{ form_start(formMap) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(formMap) }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(formMap.project_name) }}
+            {{ form_row(formMap.project_title) }}
+            {{ form_row(formMap.project_description) }}
+        </div>
+    </div>
+{{ form_end(formMap) }}

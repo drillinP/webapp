@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <a class="navbar-brand mx-auto" href="{{ path('homepage') }}">WebApp</a>
+
+        <div class="d-flex">
+            <ul class="navbar-nav">
+                {% if app.user %}
+                    <li class="nav-item dropdown-center">
+                        <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ path('app_logout') }}">{{  'form.logout' | trans }}</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success mx-3" href="{{ path('app_login') }}" data-bs-toggle="tooltip" data-bs-placement="left"  data-bs-custom-class="custom-tooltip" title="{{  'form.sign.in' | trans }}"><i class="bi bi-person-circle"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" title="{{  'form.sign.up' | trans }}"><i class="bi bi-person-plus-fill"></i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
