@@ -1,0 +1,7 @@
+form:
+    username: "Nom d'utilisateur"
+    password: Mot de passe
+    logout: Se déconnecter
+    sign:
+        in: Se connecter
+        up: S'inscrire
