@@ -2,10 +2,10 @@ up:
 	docker compose up -d
 
 stop:
-	docker composer stop
+	docker compose stop
 
 down:
-	docker composer down
+	docker compose down
 
 validate:
 	composer validate --no-check-publish
