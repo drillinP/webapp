@@ -18,3 +18,9 @@ phpcs:
 
 twig-lint:
 	php bin/console lint:twig ./templates
+
+ca-install:
+	symfony server:ca:install
+
+start:
+	symfony server:start
