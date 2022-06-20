@@ -39,7 +39,7 @@ class MapType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'attr' => ['id' => 'newMapForm']
+            'attr' => ['id' => 'newMapProjectForm']
         ]);
     }
 
