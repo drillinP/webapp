@@ -1,0 +1,37 @@
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="btn nav-link text-success" href="#" id="" role="button">
+          <i class="bi bi-pen"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown mt-3">
+          <a class="nav-link text-success btn dropdown-toggle" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            <i class="bi bi-map"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#{{id_modal_map_new}}" href="#">Nouvelle carte</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+<div>
+<div class="offcanvas-btn-box">
+    <a class="myspan btn-primary" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+        <span><i class="bi bi-caret-right-fill"></i></span><span><i class="bi bi-caret-left-fill"></i></span>
+    </a>
+</div>
+</div>

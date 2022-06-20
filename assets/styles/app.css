@@ -11,23 +11,23 @@ body {
 }
 
 .offcanvas-btn-box {
-    transition: transform .3s ease-in-out; /* same as what's on the panel */
+  transition: transform .3s ease-in-out; /* same as what's on the panel */
 }
 
 .offcanvas.show + div .offcanvas-btn-box {
-    transform: translateX(150px);
-    position: relative;
-    z-index: 1100;
+  transform: translateX(400px);
+  position: relative;
+  z-index: 1100;
 }
 
 /* optional junk to toggle the button text */
 .offcanvas-btn-box .myspan span:last-child,
 .offcanvas.show + div .offcanvas-btn-box .myspan span:first-child {
-    display: none;
+  display: none;
 }
 
 .offcanvas.show + div .offcanvas-btn-box .myspan span:last-child {
-    display: inline;
+  display: inline;
 }
 
 
