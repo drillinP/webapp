@@ -6,6 +6,7 @@
 parameters:
     locale: fr
     app_locales: en|fr
+    conn_params: '%env(DATABASE_URL)%'
 
 services:
     # default configuration for services in *this* file
