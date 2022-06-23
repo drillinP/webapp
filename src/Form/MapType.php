@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -12,25 +13,34 @@ class MapType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('project_name', TextType::class, [
+            ->add('name', TextType::class, [
                 'label' => 'Nom du Projet',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Nom du Projet'
+                    'placeholder' => 'Nom du Projet',
                 ]
             ])
-            ->add('project_title', TextType::class, [
+            ->add('title', TextType::class, [
                 'label' => 'Titre du projet',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Titre du Projet'
+                    'placeholder' => 'Titre du Projet',
                 ]
             ])
-            ->add('project_description', TextType::class, [
+            ->add('description', TextType::class, [
                 'label' => 'Description du projet',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Description du Projet'
+                    'placeholder' => 'Description du Projet',
+                ]
+            ])
+            ->add('projection', IntegerType::class, [
+                'label' => 'Système de coordonnées',
+                'required' => false,
+                "mapped" => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => '2154',
                 ]
             ])
         ;
