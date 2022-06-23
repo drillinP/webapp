@@ -5,9 +5,16 @@
 
     <div class="row">
         <div class="col">
-            {{ form_row(formMap.project_name) }}
-            {{ form_row(formMap.project_title) }}
-            {{ form_row(formMap.project_description) }}
+            {{ form_row(formMap.name) }}
+            {{ form_row(formMap.title) }}
+            {{ form_row(formMap.description) }}
+
+            {% embed "accordion.html.twig" with { title: 'Paramètres supplémentaire' } %}
+                {% block accordion_body %}
+                    {{ form_rest(formMap) }}
+                {% endblock accordion_body %}
+            {% endembed %}
+
         </div>
     </div>
 {{ form_end(formMap) }}
