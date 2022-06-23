@@ -14,25 +14,32 @@
 
     </head>
     <body>
-        {% include 'menu/navbar.html.twig' with { id_modal_map_new: id_modal_map_new } %}
-        <div class="row flex">
-            <div class="" style="position: absolute;">
-                {% include 'menu/sidebar.html.twig' %}
+        {% include 'menu/navbar.html.twig' %}
+        {% if app.user %}
+            <div class="row flex">
+                <div class="" style="position: absolute;">
+                    {% include 'menu/sidebar.html.twig' %}
+                </div>
+                <div class="">
+                    {% block body %}{% endblock %}
+                </div>
+
             </div>
-            <div class="">
-                {% block body %}{% endblock %}
+
+            {% embed "modal.html.twig" with { id_modal_map_new: id_modal_map_new, title: 'Nouveau Projet' } %}
+                {% block modal_body %}
+                    {{ render(path('new_map')) }}
+                {% endblock modal_body %}
+                {% block modal_button %} <button class="btn btn-success" type="submit" id="BtnNewMapSubmit" form="newMapProjectForm">Créer</button> {% endblock %}
+
+            {% endembed %}
+        {% else %}
+            <div class="container">
+                {% block body_unconnected %}{% endblock %}
             </div>
+        {% endif %}
 
-        </div>
-
-        {% embed "modal.html.twig" with { id_modal_map_new: id_modal_map_new, title: 'Nouveau Projet' } %}
-            {% block modal_body %}
-                {{ render(path('new_map')) }}
-            {% endblock modal_body %}
-            {% block modal_button %} <button class="btn btn-success" type="submit" form="newMapProjectForm">Créer</button> {% endblock %}
-            
-	    {% endembed %}
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
         {% block javascripts %}
@@ -42,6 +49,28 @@
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
+            const toastTrigger = document.getElementById('liveToastBtn')
+            const toastLiveExample = document.getElementById('liveToast')
+            if (toastTrigger) {
+                toastTrigger.addEventListener('click', () => {
+                    const toast = new bootstrap.Toast(toastLiveExample)
+
+                    toast.show()
+                })
+            }
+
+            $("#newMapProjectForm").on('submit', function(e){
+                e.preventDefault();
+                let data = {};
+                $(this).serializeArray().forEach((object)=>{
+                    data[object.name] = object.value;
+                });
+                $.post("{{ path('new_map') }}", data).then(
+                    messages => {
+                        console.log(messages)
+                    }
+                )
+            })
         </script>
     </body>
 </html>
