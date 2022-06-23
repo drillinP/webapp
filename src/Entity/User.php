@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -40,11 +39,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'text')]
     private string $last_name;
 
-    #[ORM\Column(type: 'date')]
+    #[ORM\Column(type: 'date', options: ["default" => new \DateTime()])]
     private \DateTime $registered_at;
 
     #[ORM\Column(type: 'date', nullable: true)]
-    private DateTimeImmutable|null $updated_at;
+    private \DateTime|null $updated_at;
 
     #[ORM\OneToMany(mappedBy: 'created_by', targetEntity: Maps::class)]
     private Collection $maps;
@@ -163,24 +162,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRegisteredAt(): ?\DateTimeImmutable
+    public function getRegisteredAt(): ?\DateTime
     {
         return $this->registered_at;
     }
 
-    public function setRegisteredAt(\DateTimeImmutable $registered_at): self
+    public function setRegisteredAt(\DateTime $registered_at): self
     {
         $this->registered_at = $registered_at;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updated_at;
     }
 
-    public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
+    public function setUpdatedAt(?\DateTime $updated_at): self
     {
         $this->updated_at = $updated_at;
 

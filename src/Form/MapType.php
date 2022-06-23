@@ -37,7 +37,6 @@ class MapType extends AbstractType
             ->add('projection', IntegerType::class, [
                 'label' => 'Système de coordonnées',
                 'required' => false,
-                "mapped" => false,
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => '2154',
