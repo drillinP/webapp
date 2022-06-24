@@ -25,11 +25,11 @@ class Maps
     #[ORM\Column(type: 'text', nullable: true)]
     private string|null $description;
 
-    #[ORM\Column(type: 'date', options:["default" => "NOW()"])]
-    private DateTimeImmutable $created_at;
+    #[ORM\Column(type: 'date', options: ["default" => new \DateTime()])]
+    private \DateTime $created_at;
 
     #[ORM\Column(type: 'date', nullable: true)]
-    private DateTimeImmutable|null $updated_at;
+    private \DateTime|null $updated_at;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'maps')]
     #[ORM\JoinColumn(nullable: false)]
@@ -76,24 +76,24 @@ class Maps
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    public function setCreatedAt(\DateTime $created_at): self
     {
         $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updated_at;
     }
 
-    public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
+    public function setUpdatedAt(?\DateTime $updated_at): self
     {
         $this->updated_at = $updated_at;
 
