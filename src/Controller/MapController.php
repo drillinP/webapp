@@ -16,7 +16,6 @@ class MapController extends AbstractController
     #[Route(path: '/map/new', name: 'new_map')]
     public function new(Request $request): Response
     {
-        dump($request);
         // get the login error if there is one
         $formMap = $this->createForm(MapType::class);
         $formMap->handleRequest($request);

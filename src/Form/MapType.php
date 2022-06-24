@@ -35,6 +35,7 @@ class MapType extends AbstractType
                 ]
             ])
             ->add('projection', IntegerType::class, [
+                'mapped' => false,
                 'label' => 'Système de coordonnées',
                 'required' => false,
                 'attr' => [
@@ -48,6 +49,7 @@ class MapType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'data_class' => Maps::class,
             'attr' => ['id' => 'newMapProjectForm']
         ]);
     }
